@@ -5,6 +5,9 @@
 	"authors": [
 		"ParaPenguin"
 	],
+    "stats": {
+        "disable": true
+    },
 	"teams": [
 		{
 			"id": "green",
