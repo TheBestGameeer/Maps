@@ -1,0 +1,137 @@
+{
+	"name": "Senex Scrim",
+	"version": "1.1.0",
+	"gametype": "DTM",
+	"authors": [
+		"ParaPenguin"
+	],
+	"teams": [
+		{
+			"id": "green",
+			"name": "Green",
+			"color": "green",
+			"min": "1",
+			"max": "50"
+		},
+		{
+			"id": "cyan",
+			"name": "Cyan",
+			"color": "dark_aqua",
+			"min": "1",
+			"max": "50"
+		}
+	],
+    "spawns": [
+        {"teams": ["spectators"], "coords": "82, 37, -809"},
+        {"teams": ["green"], "coords": "35, 20, -743, -90"},
+        {"teams": ["cyan"], "coords": "129, 20, -743, 90"}
+    ],
+	"dtm": {
+        "monuments": [
+			{
+				"name": "Left",
+				"teams": ["green"],
+				"materials": ["obsidian"],
+				"region": { 
+					"min": "-12, 23, -733",
+					"max": "-12, 23, -733" 
+				},
+				"health": 1
+			},
+			{
+				"name": "Right",
+				"teams": ["green"],
+				"materials": ["obsidian"],
+				"region": { 
+					"min": "-12, 23, -755",
+					"max": "-12, 23, -755" 
+				},
+				"health": 1
+			},
+			{
+				"name": "Left&r",
+				"teams": ["cyan"],
+				"materials": ["obsidian"],
+				"region": {
+					"min": "176, 23, -755",
+					"max": "176, 23, -755"
+				},
+				"health": 1
+			},
+			{
+				"name": "Right&r",
+				"teams": ["cyan"],
+				"materials": ["obsidian"],
+				"region": {
+					"min": "176, 23, -733",
+					"max": "176, 23, -733"
+				},
+				"health": 1
+			}
+		]
+    },
+    "kits": [
+		{
+			"name": "Default",
+			"items": [
+				{"type": "item", "material": "stone sword", "slot": 0, "unbreakable": true},
+				{"type": "item", "material": "bow", "slot": 1, "unbreakable": true, "enchantments": ["arrow_infinite:1"]},
+				{"type": "item", "material": "diamond pickaxe", "slot": 2, "unbreakable": true},
+				{"type": "item", "material": "golden apple", "slot": 3, "amount": 2},
+				{"type": "item", "material": "cooked beef", "slot": 4, "amount": 32},
+				{"type": "item", "material": "sandstone", "slot": 6, "amount": 64},
+				{"type": "item", "material": "log", "slot": 7, "amount": 64},
+				{"type": "item", "material": "arrow", "slot": 28, "amount": 64},
+
+				{"type": "item", "material": "leather helmet", "slot": "helmet", "unbreakable": true},
+				{"type": "item", "material": "leather chestplate", "slot": "chestplate", "unbreakable": true},
+				{"type": "item", "material": "leather leggings", "slot": "leggings", "unbreakable": true},
+				{"type": "item", "material": "leather boots", "slot": "boots", "unbreakable": true}
+			]
+		},
+        {
+            "name": "green",
+            "teams": ["green"],
+            "items": [
+                {"type": "item", "material": "stained glass", "slot": 5, "durability": 5, "amount": 32}
+            ] 
+        },
+        {
+            "name": "cyan",
+            "teams": ["cyan"],
+			"items": [
+				{"type": "item", "material": "stained glass", "slot": 5, "durability": 9, "amount": 32}
+			] 
+        }
+	],
+    "regions": [
+		{"id": "map", "type": "cuboid", "min": "-19, 39, -762", "max": "183, -oo, -726"},
+		{"id": "green-spawn", "type": "cylinder", "base": "35, 19, -744", "height": 6.0, "radius": 8.0},
+		{"id": "cyan-spawn", "type": "cylinder", "base": "129, 19, -744", "height": 6.0, "radius": 8.0}
+	],
+    "filters": [
+		{
+            "type": "build",
+            "evaluate": "deny",
+            "teams": ["green", "cyan"],
+            "regions": ["green-spawn", "cyan-spawn"],
+            "message": "&cYou may not build here."
+        },
+        {
+            "type": "leave",
+            "evaluate": "deny",
+            "teams": ["green", "cyan"],
+            "regions": ["map"],
+            "message": "&cYou may not leave this region."
+        }
+	],
+    "itemremove": [
+        "leather helmet",
+        "leather chestplate",
+        "leather leggings",
+        "leather boots",
+        "glass",
+        "sandstone",
+        "log"
+    ]
+}
